@@ -4,7 +4,6 @@ import com.treppaco.examplemod.SeanMod;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.util.ActionResult;
@@ -18,6 +17,7 @@ import java.util.List;
 
 /**
  * Created by h34tsink on 6/1/2017.
+ * a change!
  */
 public class ItemTutorialItem extends ItemSword {
 
