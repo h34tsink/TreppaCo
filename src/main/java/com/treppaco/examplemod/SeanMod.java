@@ -14,12 +14,16 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 @Mod(modid = SeanMod.MODID, name = SeanMod.NAME, version = SeanMod.VERSION)
 public class SeanMod {
-    public static final String NAME     = "Sean's Example Mod";
+    static final String NAME     = "Sean's Example Mod";
     public static final String MODID    = "examplemod";
-    public static final String VERSION  = "1.0";
+    static final String VERSION  = "1.0";
 
     @SidedProxy(clientSide = "com.treppaco.examplemod.proxy.ClientProxy", serverSide = "com.treppaco.examplemod.proxy.CommonProxy")
-    public static CommonProxy proxy;
+    private static CommonProxy proxy;
+
+    //TODO-sean work on models next
+
+    //Another test change
 
     @Mod.Instance
     public static SeanMod instance;
