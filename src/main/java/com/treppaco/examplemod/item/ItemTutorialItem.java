@@ -17,7 +17,6 @@ import java.util.List;
 
 /**
  * Created by h34tsink on 6/1/2017.
- * a change!
  */
 public class ItemTutorialItem extends ItemSword {
 
