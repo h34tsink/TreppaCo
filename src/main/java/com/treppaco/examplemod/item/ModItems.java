@@ -10,7 +10,11 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /**
  * Created by h34tsink on 5/30/2017.
+ * FOR GREAT JUSTICE!
  */
+
+//test
+
 public class ModItems {
 
     public static Item tutorialItem;
