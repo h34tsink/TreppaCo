@@ -1,59 +1,31 @@
--------------------------------------------
-Source installation information for modders
--------------------------------------------
-This code follows the Minecraft Forge installation methodology. It will apply
-some small patches to the vanilla MCP source code, giving you and it access 
-to some of the data and functions you need to build a successful mod.
+Intellij IDEA IDE for Mod-Development.
 
-Note also that the patches are built against "unrenamed" MCP source code (aka
-srgnames) - this means that you will not be able to read them directly against
-normal code.
+First, you are going to need to download the Forge-Source ("Src") package from http://files.minecraftforge.net/ and unzip it.
 
-Source pack installation information:
+If you are using Intellij 14 or later you need to add the following to the end of your build.gradle before importing:
+idea { module { inheritOutputDirs = true } }
+If you don't do that, your assets will not work. (Thanks to SanAndreasP for finding this solution)
 
-Standalone source installation
-==============================
+Next, start up Intellij. If you already have a Project opened, select File > Open, otherwise select "Open Project". Navigate to the directory where you unzipped Forge to and select the
+build.gradle
+file. Leave the import-settings at default and click OK.
+Intellij will now take a while to import the project. Once that's done, open the Gradle-sidebar.
+If the sidebar is not visible, click the view-switcher in the bottom-left corner: oeiuGXW.png
 
-Step 1: Open your command-line and browse to the folder where you extracted the zip file.
+Select the
+setupDecompWorkspace
+task from the list and run it (double-click). If you don't need the Minecraft source code visible, run
+setupDevWorkspace
+instead, it will be faster.
+Once the task has finished, click the Refresh button in the Gradle-sidebar. That will again take a moment. Once Intellij has finished refreshing, your project is already almost ready to go. You should be able to see all the libraries used by Forge & Minecraft on the left and also the source code for the ExampleMod inside
+src/main/java
+.
 
-Step 2: Once you have a command window up in the folder that the downloaded material was placed, type:
+All that is left to do are the run configurations, so that you can actually start Minecraft. For those again open the Gradle sidebar and run the
+genIntellijRuns
+task. Intellij will now ask to reload the project, click OK.
 
-Windows: "gradlew setupDecompWorkspace"
-Linux/Mac OS: "./gradlew setupDecompWorkspace"
+In most recent versions of IntelliJ you now have to go into Run > Edit Configurations and adjust both run configurations like shown below.
+http://i.imgur.com/49qpav0.png
 
-Step 3: After all that finished, you're left with a choice.
-For eclipse, run "gradlew eclipse" (./gradlew eclipse if you are on Mac/Linux)
-
-If you preffer to use IntelliJ, steps are a little different.
-1. Open IDEA, and import project.
-2. Select your build.gradle file and have it import.
-3. Once it's finished you must close IntelliJ and run the following command:
-
-"gradlew genIntellijRuns" (./gradlew genIntellijRuns if you are on Mac/Linux)
-
-Step 4: The final step is to open Eclipse and switch your workspace to /eclipse/ (if you use IDEA, it should automatically start on your project)
-
-If at any point you are missing libraries in your IDE, or you've run into problems you can run "gradlew --refresh-dependencies" to refresh the local cache. "gradlew clean" to reset everything {this does not effect your code} and then start the processs again.
-
-Should it still not work, 
-Refer to #ForgeGradle on EsperNet for more information about the gradle environment.
-
-Tip:
-If you do not care about seeing Minecraft's source code you can replace "setupDecompWorkspace" with one of the following:
-"setupDevWorkspace": Will patch, deobfusicated, and gather required assets to run minecraft, but will not generated human readable source code.
-"setupCIWorkspace": Same as Dev but will not download any assets. This is useful in build servers as it is the fastest because it does the least work.
-
-Tip:
-When using Decomp workspace, the Minecraft source code is NOT added to your workspace in a editable way. Minecraft is treated like a normal Library. Sources are there for documentation and research purposes and usually can be accessed under the 'referenced libraries' section of your IDE.
-
-Forge source installation
-=========================
-MinecraftForge ships with this code and installs it as part of the forge
-installation process, no further action is required on your part.
-
-LexManos' Install Video
-=======================
-https://www.youtube.com/watch?v=8VEdtQLuLO0&feature=youtu.be
-
-For more details update more often refer to the Forge Forums:
-http://www.minecraftforge.net/forum/index.php/topic,14048.0.html
+That's it!
