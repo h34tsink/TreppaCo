@@ -26,6 +26,7 @@ public class SeanMod {
     //Another test change
     // one more test change
 
+
     @Mod.Instance
     public static SeanMod instance;
 
