@@ -24,6 +24,7 @@ public class SeanMod {
     //TODO-sean work on models next
 
     //Another test change
+    // one more test change
 
     @Mod.Instance
     public static SeanMod instance;
